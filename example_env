@@ -1,0 +1,22 @@
+# django app
+SECRET_KEY=django-insecure-g9@ymi1kufunr&kvx=n6q=pc=s0(4lwtc44f1b87$g2txw=nyk
+DEBUG=0
+DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1 [::1] *
+CSRF_TRUSTED_ORIGINS=http://localhost
+
+SQL_ENGINE=django.db.backends.postgresql
+SQL_DATABASE=djangoauth
+SQL_USER=djangoauth_user
+SQL_PASSWORD=djangoauth_password
+SQL_HOST=postgres
+SQL_PORT=5432
+DATABASE=postgres
+
+DJANGO_SUPERUSER_USERNAME=admin
+DJANGO_SUPERUSER_PASSWORD=P@ssw0rd
+DJANGO_SUPERUSER_EMAIL=example@example.com
+
+# postgres
+POSTGRES_DB=djangoauth
+POSTGRES_USER=djangoauth_user
+POSTGRES_PASSWORD=djangoauth_password

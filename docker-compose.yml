@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  web:
+    build: ./
+    command: gunicorn core.wsgi:application --bind 0.0.0.0:8000
+    volumes:
+      - ./app/:/usr/src/app/
+      - static_volume:/usr/src/app/staticfiles
+      - media_volume:/usr/src/app/mediafiles
+    env_file:
+      - .env
+    expose:
+      - 8000
+    depends_on:
+        - postgres
+  postgres:
+    image: postgres:13.0-alpine
+    env_file:
+      - .env
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+  nginx:
+    build: ./nginx
+    volumes:
+      - static_volume:/usr/src/app/staticfiles
+      - media_volume:/usr/src/app/mediafiles
+    ports:
+      - 80:80
+    depends_on:
+      - web
+
+volumes:
+    postgres_data:
+    static_volume:
+    media_volume:
